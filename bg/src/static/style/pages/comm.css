@@ -1,0 +1,153 @@
+/* 公共样式 */
+body{
+    background-color: #f6f6f6;
+}
+.comm-left{
+    background-color: #fff;
+    padding:.3rem;
+    border-radius: .3rem;
+    border-bottom:1px solid #eee;
+  }
+  .comm-right{
+    /* background-color: #FFF; */
+    margin-left: .5rem;
+    padding:.3rem;
+    border-radius: .3rem;
+    border-bottom:1px solid #eee;
+  
+  }
+  .comm-main{
+    margin-top: .5rem;
+  }
+  @font-face {
+    font-family: 'webfont';
+    font-display: swap;
+    src: url('../../font/webfont.eot'); /* IE9 */
+    src: url('../../font/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../../font/webfont.woff2') format('woff2'),
+    url('../../font/webfont.woff') format('woff'), /* chrome、firefox */
+    url('../../font/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../../font/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+}
+/* 主页列表公用css */
+.list-header{
+    font-size: 1.5rem;
+    color: #888;
+    font-family: 'webfont';
+}
+.list-title{
+    font-size: 1.5rem;
+    color: #BB442C;
+    font-family: "webfont" !important;
+    padding: 0 .5rem;
+}
+.list-context{
+    color: #8E8E8E;
+    padding: 0  .5rem;
+}
+.list-icon{
+    padding:  0;
+    color: #777;
+    font-size: 1rem;
+
+}
+.list-icon span{
+    display: inline-block;
+    /* margin-right:  .5rem; */
+    padding: 0 .4rem;
+}
+.center{
+    text-align: center;
+}
+.bread-div{
+    padding: .5rem;
+    border-bottom:1px solid #eee;
+    background-color: #e1f0ff;
+}
+.detailed-title{
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+.center{
+    text-align: center;
+}
+.detailed-content{
+    padding: 1.3rem;
+    font-size: 1rem;
+}
+pre{
+    display: block;
+    background-color:#f3f3f3;
+     padding: .5rem !important;
+     overflow-y: auto;
+     font-weight: 300;
+     font-family: Menlo, monospace;
+     border-radius: .3rem;
+}
+pre{
+    background-color: #283646 !important;
+}
+pre >code{
+    border:0px !important;
+    background-color: #283646 !important;
+    color:#FFF;
+
+}
+code {
+    display: inline-block ;
+    background-color:#f3f3f3;
+    border:1px solid #fdb9cc;
+    border-radius:3px;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color:#4f4f4f;
+    margin: 0px 3px;
+
+}
+
+.title-anchor{
+    color:#888 !important;
+    padding:4px !important;
+    margin: 0rem !important;
+    height: auto !important;
+    line-height: 1.2rem !important;
+    font-size: .7rem !important;
+    border-bottom: 1px dashed #eee;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.active{
+    color:rgb(30, 144, 255) !important;
+}
+.nav-title{
+    text-align: center;
+    color: #888;
+    border-bottom: 1px solid rgb(30, 144, 255);
+
+}
+.article-menu{
+    font-size:12px;
+}
+iframe{
+    height: 34rem;
+}
+.detailed-content  img{
+    width: 100%;
+    border:1px solid #f3f3f3;
+}
+.title-level3{
+    display: none !important;
+}
+.ant-anchor-link-title{
+    font-size: 12px !important;
+}
+.ant-anchor-wrapper{
+    padding: 5px !important;
+}
+.pagination{
+    margin-top: 1rem;
+    text-align: center;
+}
