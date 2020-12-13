@@ -69,8 +69,8 @@ router.post("/addArticle", async (req, res) => {
       sql = `update  article set title=?,article_content=?,introduce=?,type_id=? where id = ?`;
       query(sql, [title, article_content, introduce, type_id,id])
         .then((rows) => {
-          console.log("添加文章成功");
-          res.send({ msg: "添加文章成功", code: 200 });
+          console.log("修改文章成功");
+          res.send({ msg: "修改文章成功", code: 200 });
         })
         .catch((err) => {
           console.log(err);

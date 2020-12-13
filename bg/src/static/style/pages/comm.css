@@ -1,12 +1,12 @@
 /* 公共样式 */
 body{
-    background-color: #f6f6f6;
+    background-color: #20232a;
 }
 .comm-left{
-    background-color: #fff;
+    /* background-color: #fff; */
     padding:.3rem;
-    border-radius: .3rem;
-    border-bottom:1px solid #eee;
+    /* border-radius: .3rem; */
+    /* border-bottom:1px solid #eee; */
   }
   .comm-right{
     /* background-color: #FFF; */
@@ -37,7 +37,7 @@ body{
 }
 .list-title{
     font-size: 1.5rem;
-    color: #BB442C;
+    color:#20232a;
     font-family: "webfont" !important;
     padding: 0 .5rem;
 }
@@ -108,24 +108,25 @@ code {
 }
 
 .title-anchor{
-    color:#888 !important;
+    color:#fff !important;
     padding:4px !important;
     margin: 0rem !important;
     height: auto !important;
     line-height: 1.2rem !important;
     font-size: .7rem !important;
-    border-bottom: 1px dashed #eee;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
 }
+
 .active{
-    color:rgb(30, 144, 255) !important;
+    color:#fff !important;
+    background-color: #000 !important;
 }
 .nav-title{
     text-align: center;
-    color: #888;
-    border-bottom: 1px solid rgb(30, 144, 255);
+    color: #fff;
+    /* border-bottom: 1px solid rgb(30, 144, 255); */
 
 }
 .article-menu{
@@ -150,4 +151,59 @@ iframe{
 .pagination{
     margin-top: 1rem;
     text-align: center;
+}
+
+.list{
+    background-color: #20232a;
+    border: 0;
+}
+.list-item{
+    background-color: #fff;
+    /* color: #fff; */
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+.comm-box{
+    /* background-color:; */
+    /* background:none; */
+    border-radius: .5rem !important;
+    background-color: #20232a !important;
+    color: #fff !important;
+}
+.detail{
+    /* background-color: #fff; */
+    color: #fff !important;
+}
+.detailed-nav{
+    border-radius: .5rem;
+    background-color: #20232a !important;
+   
+}
+
+.ant-divider-inner-text{
+    color: #fff;
+}
+.ant-tabs-nav-wrap{
+    color: #fff;
+}
+.ant-tabs-nav::before{
+border-bottom: #20232a !important;
+}
+.ant-menu-ite{
+    color: #fff;
+}
+/* .ant-menu{
+    color: #fff !important;
+} */
+.listTitle{
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.comm-right{
+    border: 0;
+} 
+.typeLink{
+    color: #20232a;
 }

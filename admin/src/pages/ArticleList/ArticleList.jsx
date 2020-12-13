@@ -1,35 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { List, Row, Col, Modal, message, Button } from "antd";
 import axiosInstance from "../../util/index";
-import * as style from './index'
+import * as style from "./index";
 const { confirm } = Modal;
 function ArticleList(props) {
   const [list, setList] = useState([]);
   useEffect(() => {
     axiosInstance.request("/admin/getArticleList").then((res) => {
-      setList(res.data);
+      if (res.data.code === 301) {
+        message.error("重新登陆管理系统");
+        props.history.push("/");
+      } else setList(res.data);
     });
   }, []);
-  function deleteArticle(id){
-      confirm({
-          title:'确定要删除这篇文章吗',
-          content:'如果点击ok 文章永远丢失',
-          onOk(){
-             axiosInstance.request({url:'/admin/deleteArticleById',method:'post',data:{id}}).then(res=>{
-                message.success('文章删除成功');  
-                axiosInstance.request("/admin/getArticleList").then((res) => {
-                    setList(res.data);
-                  });
+  function deleteArticle(id) {
+    confirm({
+      title: "确定要删除这篇文章吗",
+      content: "如果点击ok 文章永远丢失",
+      onOk() {
+        axiosInstance
+          .request({
+            url: "/admin/deleteArticleById",
+            method: "post",
+            data: { id },
           })
-          
-          },
-          onCancel(){
-              message.success('文章取消操作')
-          }
-      })
+          .then((res) => {
+            message.success("文章删除成功");
+            axiosInstance.request("/admin/getArticleList").then((res) => {
+              if (res.data.code === 301) {
+                message.error("重新登陆管理系统");
+                props.history.push("/");
+              } else setList(res.data);
+            });
+          });
+      },
+      onCancel() {
+        message.success("文章取消操作");
+      },
+    });
   }
-  function AlertArticle(id){
-      props.history.push('/admin/add/'+id)
+  function AlertArticle(id) {
+    props.history.push("/admin/add/" + id);
   }
   return (
     <style.ArticleListBox>
@@ -64,8 +75,22 @@ function ArticleList(props) {
                 <Col span={4}>{item.addTime}</Col>
                 <Col span={4}>{item.view_count}</Col>
                 <Col span={4}>
-                  <Button type="primary" onClick={()=>{AlertArticle(item.id)}}>修改</Button>&nbsp;
-                  <Button onClick={()=>{deleteArticle(item.id)}}>删除</Button>
+                  <Button
+                    type="primary"
+                    onClick={() => {
+                      AlertArticle(item.id);
+                    }}
+                  >
+                    修改
+                  </Button>
+                  &nbsp;
+                  <Button
+                    onClick={() => {
+                      deleteArticle(item.id);
+                    }}
+                  >
+                    删除
+                  </Button>
                 </Col>
               </Row>
             </List.Item>

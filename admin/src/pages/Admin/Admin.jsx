@@ -3,15 +3,14 @@ import {
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
-  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import * as style from './index'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import {Route} from 'react-router-dom'
 import AddArticle from './AddArticle/AddArticle'
 import ArticleList from '../ArticleList/ArticleList';
-const { Header, Content, Footer, Sider } = Layout;
+const {  Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 function Admin (props) {

@@ -4,6 +4,7 @@ export const AuthorDiv = styled.div`
 text-align:center;
 padding:1rem;
 background-color:#fff;
+
 div{
     margin-bottom:1rem;
 }

@@ -16,7 +16,6 @@ marked.setOptions({
   breaks: false,
   smartLists: true,
   smartypants: false,
-  sanitize: false,
   xhtml: false,
   highlight: function (code) {
     return hljs.highlightAuto(code).value;
@@ -58,7 +57,11 @@ function AddArticle(props) {
         setShowDate(res.data.addTime)
         // console.log(res.data.typeId)
       }).then(res=>{
-        message.success('文章加载完成')
+        if (res.data.code === 301) {
+          message.error("重新登陆管理系统");
+          props.history.push("/");
+        }
+        else message.success('文章加载完成')
       })
     }
     axiosInstance.request("/admin/getArticleTypes").then((res) => {
@@ -148,8 +151,14 @@ function AddArticle(props) {
       })
       .then((res) => {
         console.log(res);
-        message.success("发布成功");
+        if (res.data.code === 301) {
+          message.error("重新登陆管理系统");
+          props.history.push("/");
+        }else{
+          message.success("发布成功");
         props.history.push('/admin/list')
+        }
+        
       })
       .catch((err) => {
         console.log(err);

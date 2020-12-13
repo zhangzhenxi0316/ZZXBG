@@ -9,12 +9,15 @@ export const DetailWrapper = styled.div`
     padding:1rem;
 }
 .detailed-nav{
-    background-color:#fff;
+    /* background-color:#fff; */
     margin-top:1rem;
     padding: .5rem;
 }
 .nav-title{
     font-size:1rem;
-    color:#888;
+    color:#fff;
+}
+h1,h2,h3,h4,h5{
+    color: #fff;
 }
 `

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useState} from 'react'
 import {Card,Input,Button,Spin,message} from 'antd';
 import {UserOutlined ,KeyOutlined } from '@ant-design/icons'
 import * as style  from './index'
@@ -27,7 +27,7 @@ const Login = (props)=>{
         }
         axiosInstance.request({url:'/login',method:'POST',data:{username:username,password:password}}).then(res=>{
             setIsLoading(false)
-            if(res.data.code==200){
+            if(res.data.code===200){
                 localStorage.setItem('openId',res.data.openId)
                 props.history.push('/admin')
             }else{
