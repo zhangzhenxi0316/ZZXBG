@@ -79,7 +79,7 @@ router.get("/getArticleListByTypeId", async (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-  await query(
+  await query( 
     `select count(article.id) as totalCount from article left join type on article.type_id = type.id where type.id=${id}`
   )
     .then((rows) => {

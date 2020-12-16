@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const query = require("../../util/connect");
 router.post("/", (req, res) => {
+  console.log(222)
   let username = req.body.username;
   let password = req.body.password;
   // console.log(username,password)
@@ -12,7 +13,6 @@ router.post("/", (req, res) => {
         // 查询成功 设置session
         let openId = new Date().getTime();
         req.session.openId = openId;
-
         res.send({ msg: "登陆成功", openId, code: 200 });
       } else {
         // 失败

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import marked from "marked";
 import { Row, Col, Input, Select, Button, DatePicker, message } from "antd";
 import * as style from "./index";
-import hljs from "highlight.js";
+// import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 import axiosInstance from "../../../util/index";
 const { Option } = Select;
@@ -18,7 +18,7 @@ marked.setOptions({
   smartypants: false,
   xhtml: false,
   highlight: function (code) {
-    return hljs.highlightAuto(code).value;
+    return window.hljs.highlightAuto(code).value;
   },
 });
 

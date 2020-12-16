@@ -8,28 +8,30 @@ import NavCom from '../../components/NavCom/NavCom'
 import Footer from '../../components/Footer/Footer'
 import axiosInstance from '../../util'
 import marked from 'marked'
-import hljs from 'highlight.js'
+// import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 import List from '../../components/List/List'
 
 const renderer = new marked.Renderer()
-    marked.setOptions({
-        renderer,
-        gfm:true,//github样式
-        pedantic:false,//容错
-        sanitize:false,//忽略html
-        tables:true,//github table样式
-        breaks:false,
-        smartLists:true, //列表样式
-        highlight:function(code){
-            return hljs.highlightAuto(code).value
-        }
-    })
+   
 function MyList(props) {
+ 
     const [mylist,setMylist] = useState()
     const [totalCount,setTotalCount] = useState(0)
   useEffect(()=>{
-    
+    // console.log(window.)
+    marked.setOptions({
+      renderer,
+      gfm:true,//github样式
+      pedantic:false,//容错
+      sanitize:false,//忽略html
+      tables:true,//github table样式
+      breaks:false,
+      smartLists:true, //列表样式
+      highlight:function(code){
+        return    window.hljs.highlightAuto(code).value
+    }
+  })
     let {id} = props.match.params
     axiosInstance.get('/default/getArticleListByTypeId?id='+id).then((res)=>{
       // console.log(res.data.totalCount)

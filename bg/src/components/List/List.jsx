@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import marked from "marked";
-import hljs from "highlight.js";
+import {useEffect} from 'react'
+// import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 import {
   CalendarOutlined,
@@ -9,19 +10,23 @@ import {
 } from "@ant-design/icons";
 
 const renderer = new marked.Renderer();
-marked.setOptions({
-  renderer,
-  gfm: true, //github样式
-  pedantic: false, //容错
-  sanitize: false, //忽略html
-  tables: true, //github table样式
-  breaks: false,
-  smartLists: true, //列表样式
-  highlight: function (code) {
-    return hljs.highlightAuto(code).value;
-  },
-});
+
 function List(props) {
+    useEffect(()=>{
+        marked.setOptions({
+            renderer,
+            gfm: true, //github样式
+            pedantic: false, //容错
+            sanitize: false, //忽略html
+            tables: true, //github table样式
+            breaks: false,
+            smartLists: true, //列表样式
+            highlight:function(code){
+                return    window.hljs.highlightAuto(code).value
+            }
+          });
+    },[])
+   
   let list = props.list;
   return (
     <div className="list">

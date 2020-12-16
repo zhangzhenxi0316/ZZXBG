@@ -48,7 +48,7 @@ const NavCom = () => {
   return (
     <style.NavComWrapper >
       <StickyContainer>
-        <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} >
+        <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} centered>
           <Tabs.TabPane tab="分类" key="1">
             {type.map((item) => (
               <NavLink

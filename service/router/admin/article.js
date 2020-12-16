@@ -83,7 +83,7 @@ router.post("/addArticle", async (req, res) => {
       type_id = result.insertId;
 
       // console.log('result',result)
-      // console.log('typeId',type_id)
+      console.log('typeId',type_id)
       sql = `update article set title=?,article_content=?,introduce=?,type_id=? `;
       await query(sql, [title, article_content, introduce, type_id])
         .then((rows) => {

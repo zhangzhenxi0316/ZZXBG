@@ -13,25 +13,20 @@ import * as style from "./index.js";
 // markdown
 import marked from 'marked'
 // 代码高亮
-import hljs from 'highlight.js'
+// import hljs from 'highlight.js'
 // css
 import 'highlight.js/styles/monokai-sublime.css'
 import MarkNav from 'markdown-navbar'
 import 'markdown-navbar/dist/navbar.css'
 import axiosInstance from '../../util';
+const renderer = new marked.Renderer()
+
 function Detail(props) {
  
     const [article,setArticle] = useState({title:'',article_content:''})
     useEffect(()=>{
-        let id = props.match.params.id
-        axiosInstance.get('/default/getArticleDetail?id='+id).then(res=>{
-            // console.log(res)
-
-            setArticle(res.data)
-        }).catch(err=>message.error('文章获取失败'))
-    },[props.match.params.id])
-    const renderer = new marked.Renderer()
-    marked.setOptions({
+      // console.log(window.hljs.highlightAuto)
+      marked.setOptions({
         renderer,
         gfm:true,//github样式
         pedantic:false,//容错
@@ -40,9 +35,17 @@ function Detail(props) {
         breaks:false,
         smartLists:true, //列表样式
         highlight:function(code){
-            return hljs.highlightAuto(code).value
-        }
+          return    window.hljs.highlightAuto(code).value
+      }
     })
+        let id = props.match.params.id
+        axiosInstance.get('/default/getArticleDetail?id='+id).then(res=>{
+            // console.log(res)
+
+            setArticle(res.data)
+        }).catch(err=>message.error('文章获取失败'))
+    },[props.match.params.id])
+   
   return (
     <style.DetailWrapper>
       <Header></Header>
